@@ -23,7 +23,7 @@ public class SalesReporter {
 		
 		team = new SalesSector[numOfMembers] ;
 		
-		for (int i = 0 ; i < this.team.length ; i++) {
+		for (int i = 0 ; i < team.length ; i++) {
 			
 			System.out.print("Enter data for member number " + (i + 1));
 			System.out.print("Enter name of sales member : ");
@@ -39,6 +39,13 @@ public class SalesReporter {
 	
 	public void computeAverageSales() {
 		
+		averageSales = 0.0 ;
+		
+		for (int i = 0 ; i < team.length ; i++) {
+			averageSales += team[i].getSales()
+		}
+		
+		averageSales = averageSales / (double)team.length ;
 	}
 	
 	public void computeHighestSales() {

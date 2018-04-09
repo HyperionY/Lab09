@@ -42,13 +42,21 @@ public class SalesReporter {
 		averageSales = 0.0 ;
 		
 		for (int i = 0 ; i < team.length ; i++) {
-			averageSales += team[i].getSales()
+			averageSales += team[i].getSales() ;
 		}
 		
 		averageSales = averageSales / (double)team.length ;
 	}
 	
 	public void computeHighestSales() {
+		
+		highestSales = 0.0 ;
+		
+		for (int i = 0 ; i < team.length ; i++) {
+			if (highestSales < team[i].getSales()) {
+				highestSales = team[i].getSales();
+			}
+		}
 		
 	}
 	

@@ -9,9 +9,13 @@ public class SalesReporter {
 	private int numOfMembers ;
 	
 	public static void main(String[] args) {
-		//int numOfMembers = 0;
-		//Scanner myScanner = new Scanner(System.in) ;
 		
+		SalesReporter reporter = new SalesReporter() ;
+		
+		reporter.getData() ;
+		reporter.computeAverageSales() ;
+		reporter.computeHighestSales() ;
+		reporter.displayResult() ;
 
 	}
 	
@@ -20,12 +24,11 @@ public class SalesReporter {
 		
 		System.out.print("Enter number of sales members : ");
 		numOfMembers = myScanner.nextInt();
-		
 		team = new SalesSector[numOfMembers] ;
-		
+		//myScanner.next();
+		//System.out.print(team.length);
 		for (int i = 0 ; i < team.length ; i++) {
-			
-			System.out.print("Enter data for member number " + (i + 1));
+			System.out.print("Enter data for member number " + (i + 1) + "\n");
 			System.out.print("Enter name of sales member : ");
 			team[i].setName(myScanner.next()) ;
 			System.out.print("Enter sales member's  Sales : ");
@@ -60,7 +63,46 @@ public class SalesReporter {
 		
 	}
 	
+	public void sortingByHighestSales() {
+		String cpName ;
+		double tmp ;
+		
+		for (int i = 0 ; i < team.length - 1 ; i++) {
+			int count = i ;
+			
+			if (team[count].getSales() < team[i].getSales()) {
+				cpName = team[count].getName() ;
+				tmp = team[count].getSales() ;
+				
+				team[count].setName(team[i].getName());
+				team[count].setSales(team[i].getSales());
+				
+				team[i].setName(cpName);
+				team[i].setSales(tmp);
+			}
+		}
+	}
+	
 	public void displayResult() {
+		System.out.print("Average sales per members is " + averageSales) ;
+		System.out.print("The highest sales figure is " + highestSales) ;
+		System.out.print("The following had the highest sales: ") ;
+		System.out.print("Name : " + team[0].getName()) ;
+		System.out.print("Sales : " + team[0].getSales()) ;
+		System.out.print((highestSales - averageSales) + " above the average");
+		
+		System.out.print("The rest performed as follows : ");
+		for (int i = 1 ; i < team.length ; i++) {
+			System.out.print("Name : " + team[i].getName()) ;
+			System.out.print("Sales : " + team[i].getSales()) ;
+			
+			if (team[i].getSales() >= averageSales) {
+				System.out.print((highestSales - averageSales) + " above the average");
+			}
+			else {
+				System.out.print((averageSales - highestSales) + " below the average");
+			}
+		}
 		
 	}
 

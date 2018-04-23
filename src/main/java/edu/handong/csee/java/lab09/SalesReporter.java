@@ -1,6 +1,6 @@
 /**
  * actor : YooJungYeun
- * class : JavaProgramming 01
+ * class : JavaProgramming 02
  * HW : Lab09.repoterOfSales
  */
 
